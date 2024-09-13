@@ -12,6 +12,14 @@ h3
     
 }
 
+.console p
+{
+    margin: 1vh 2vw;
+    font-size: 3vh;
+    font-family:monospace;
+    color: greenyellow;
+}
+
 button
 {
     width: 80%;
