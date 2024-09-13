@@ -41,6 +41,18 @@ function getPostData()
 function getAllTasks()
 {
     //ex3
+    let url = 'https://jsonplaceholder.typicode.com/todos';
+    let con = document.getElementsByClassName('console')[0];
+    fetch(url)
+        .then(function(response){
+            return response.json();            
+        })
+        .then(function(myJson){
+            let jsonText = JSON.stringify(myJson);
+            let myP = document.createElement('p');
+            myP.innerText = jsonText;            
+           con.insertBefore(myP, con.firstChild);
+        });
 }
 
 function getCompletedTasks()
