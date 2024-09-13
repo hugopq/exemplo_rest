@@ -92,6 +92,26 @@ function getAlbumCount()
 function getFirstAlbumPicture()
 {
     //ex6
+    let txt_id = document.getElementById('txt_album_id');
+    if(txt_id.value == "")
+    {
+        alert('introduza o id');
+        return;
+    }
+    let url = 'https://jsonplaceholder.typicode.com/album/' + txt_id.value + "/photos";
+    let con = document.getElementsByClassName('console')[0];
+    fetch(url)
+        .then(function(response){
+            return response.json();            
+        })
+        .then(function(myJson){
+            let photo = myJson[0];
+            let myP = document.createElement('p');
+            let myImg = document.createElement('img');
+            myImg.src = photo.thumbnailUrl;           
+            myP.appendChild(myImg); 
+           con.insertBefore(myP, con.firstChild);
+        });
 }
 
 function getAlbumData()
