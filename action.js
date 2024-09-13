@@ -75,6 +75,18 @@ function getCompletedTasks()
 function getAlbumCount()
 {
     //ex5
+    let url = 'https://jsonplaceholder.typicode.com/albums';
+    let con = document.getElementsByClassName('console')[0];
+    fetch(url)
+        .then(function(response){
+            return response.json();            
+        })
+        .then(function(myJson){
+            let nr = myJson.length;
+            let myP = document.createElement('p');
+            myP.innerText = "existem " + nr + " albuns";            
+           con.insertBefore(myP, con.firstChild);
+        });
 }
 
 function getFirstAlbumPicture()
